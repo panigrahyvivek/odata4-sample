@@ -1,0 +1,12 @@
+---
+applications:
+
+- name: odatav4-sample
+  memory: 512M
+  host: odatav4-sample
+  path: target/odatav4-sample.war
+  buildpack: sap_java_buildpack
+  env:
+    destinations: '[{name: "GWEndpoint", url: "https://sapes5.sapdevcenter.com", username: "I077837", password: "D@vidwebb22"}]'
+  services:
+    - java-hdi-container
