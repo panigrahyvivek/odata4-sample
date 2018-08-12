@@ -7,6 +7,11 @@ applications:
   path: target/odatav4-sample.war
   buildpack: sap_java_buildpack
   env:
-    destinations: '[{name: "GWEndpoint", url: "https://sapes5.sapdevcenter.com", username: "I077837", password: "D@vidwebb22"}]'
+    destinations: '[
+          {name: "GWEndpoint", url: "https://sapes5.sapdevcenter.com", username: "I077837", password: "D@vidwebb22"},
+          {name: "ErpQueryEndpoint", url: "https://sandbox.api.sap.com", properties: [{key: "TrustAll", value: "true"}]},
+          {name: "northwind", url: "https://services.odata.org/V2/Northwind/Northwind.svc"},
+          {name: "s4cloud", url: "https://my300194.s4hana.ondemand.com", properties: [{key: "TrustAll", value: "true"}]}
+        ]'
   services:
     - java-hdi-container

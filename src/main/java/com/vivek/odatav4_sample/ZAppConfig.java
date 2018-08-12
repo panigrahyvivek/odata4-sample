@@ -56,16 +56,6 @@ public class ZAppConfig {
 	 * tcf.setContextPath(""); return tcf; }
 	 */
 
-	/*@Bean
-	public ServletContextInitializer initializer() {
-		return new ServletContextInitializer() {
-
-			@Override
-			public void onStartup(ServletContext servletContext) throws ServletException {
-				servletContext.setInitParameter("package", "com.vivek.odatav4_sample");
-			}
-		};
-	}*/
 
 	@Bean
 	public ODataServlet getODataServlet() {
@@ -78,6 +68,17 @@ public class ZAppConfig {
 				getODataServlet(), "/odata/v4/*");
 		registration.setLoadOnStartup(1);
 		return registration;
+	}
+	
+	@Bean
+	public ServletContextInitializer initializer() {
+		return new ServletContextInitializer() {
+
+			@Override
+			public void onStartup(ServletContext servletContext) throws ServletException {
+				servletContext.setInitParameter("package", "com.vivek.odatav4_sample");
+			}
+		};
 	}
 
 }
